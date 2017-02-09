@@ -1,0 +1,126 @@
+html
+	include includes/header.pug
+	body
+		div.col.s12.m12.l12.profile-header
+			br
+			br
+			h2.center-align
+				| Welcome, 
+				| #{currentUser.emailadress}
+			br
+			br
+			h4.center-align 
+				| So far you received: 
+				| #{currentUser.sunAlertsReceived} 
+				| Sun-alerts! 
+		div.col.s12.m12.l12.sub-header
+			br
+			h4.center-align.white-text Adjust your account settings
+		div.col.s12.m12.l12
+			h5.center-align.white-text= message
+			div.container.center-align
+				div.row
+					div.col.s12.m12.l12.settings
+						ul.collapsible.popout(data-collapsible='accordion')
+							li
+								.collapsible-header
+									i.material-icons email
+									| Change your current email:
+									|  #{currentUser.emailadress}
+								.collapsible-body
+									br
+									form.materialize-form(action='/newemail' method='post' autocomplete='off')
+										div.input-field
+											input(name='newemail' type='email' placeholder='yournew@emailaddress.com' min-length = '3' required)
+											label your new email:
+										div.buttonholder
+											input(type='submit' value='Change e-mail' class="btn waves-effect" id='submitnewemail')
+							li
+								.collapsible-header
+									i.material-icons security
+									| Change your Password
+								.collapsible-body
+									br
+									form.materialize-form(action='/newpassword' method='post' autocomplete='off')
+										div.input-field
+											input(name='oldpassword' type='password' placeholder='Your old password' required)
+											label Change password
+											input(name='newpassword' type='password' placeholder='Your new password' min-length = '8' required)
+											input(name='newpassword2' type='password' placeholder='Confirm your new password' min-length = '8' required)
+											div.buttonholder
+												input(type='submit' value='Change password' class="btn waves-effect" id='submitnewpassword')
+							li
+								.collapsible-header
+									i.material-icons notifications
+									| Change notifications settings
+								.collapsible-body
+									br
+									h5 
+										| Currently you receive
+										|  #{currentUser.maxmessages}
+										|  messages each day
+									br
+									form.materialize-form(action='/newfreq' method='post' autocomplete='off')
+										label How many messages do you want to receive each day?
+										div.input-field
+											input(name='frequency' type='number' max='5' min='1' placeholder='Maximum of 5 messages a day' class='validate' required)
+											div.buttonholder
+												input(type='submit' value='Change frequency' class="btn waves-effect" id='submitnewfreq')
+										br
+									hr
+									br
+									h5 You're receiving messages on these days: 
+									p #{currentUser.contactdays}
+									form.materialize-form(action='/newcontactday' method='post' autocomplete='off')
+										h6 On which of the following days do you want to receive a message?
+											div.input-field.checkbox
+												input(type='checkbox' name='everyday' id='everyday')
+												label(for='everyday') Everyday
+										br
+										h6 select individual days:
+											div.input-field.checkbox
+												input(type='checkbox' name='day' id ='monday' value='monday' class='daygroup')
+												label(for='monday') Mon
+												input(type='checkbox' name='day' id='tuesday' value='tuesday' class='daygroup') 
+												label(for='tuesday') Tue
+												input(type='checkbox' name='day' id='wednesday' value='wednesday' class='daygroup') 
+												label(for='wednesday') Wed
+												input(type='checkbox' name='day' id ='thursday' value='thursday' class='daygroup')
+												label(for='thursday') Thur
+												input(type='checkbox' name='day' id='friday' value='friday' class='daygroup') 
+												label(for='friday') Fri
+												input(type='checkbox' name='day' id='saturday' value='saturday' class='daygroup') 
+												label(for='saturday') Sat
+												input(type='checkbox' name='day' id='sunday' value='sunday' class='daygroup') 
+												label(for='sunday') Sun
+												br
+												br
+												div.buttonholder
+													input(type='submit' value='Update weekdays' class="btn waves-effect" id='submitnewcontactdays')
+											br
+							li
+								.collapsible-header
+									i.material-icons location_on
+									| Change your location
+								.collapsible-body
+									br
+									h5 
+										| Currently your location is:  
+										|  #{currentUser.city}
+									form.materialize-form(action='/newloc' method='post' autocomplete='off')
+										div.input-field
+											input(type='radio' name='loc' id='loc' value='loc')
+											label(for='loc') Use Current location
+											p#locationField
+										div.input-field
+											input#inputAdress(name='adress' type='text' placeholder='Adress' class='validate' onchange='checkGeoLoc()')
+											label Type in a city or adress:
+											input(type="hidden" id="lat" name="lat" value="")
+											input(type="hidden" id="lng" name="lng" value="")
+											input(type="hidden" id="city" name="city" value="")
+											div.buttonholder
+												input(type='submit' value='Change Location' class="btn waves-effect" id='submitnewloc')
+
+							br
+		main
+		include includes/footer

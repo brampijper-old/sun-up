@@ -1,0 +1,33 @@
+head
+	link( href="materialize/css/materialize.min.css" type="text/css" rel="stylesheet")
+	link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+	link( href='css/style.css' type='text/css' rel='stylesheet')
+body
+	div.navbar-wrapper
+		nav
+			div.nav-wrapper
+				a(href='#' data-activates='mobile-demo' class='button-collapse hide-on-med-and-up')
+					i.material-icons menu
+				ul.right.hide-on-small-only
+					li
+						a(href='index') Home
+					li
+						a(href='profile') Profile
+					li
+						a(href='logout') Logout
+				ul(class='side-nav hide-on-med-and-up' id='mobile-demo') 
+					li
+						a(href='index') Home
+					li
+						a(href='profile') Profile
+					li
+						a(href='logout') Logout
+			//- div.login-form
+			//- 	ul.table
+			//- 		form(action='/login' method='post')
+			//- 			li
+			//- 				input(type='email' name='email' placeholder='your@email.com' class="validate" required)
+			//- 			li
+			//- 				input(name='password' placeholder='Your password' type='password' class="validate" required)
+			//- 			li
+			//- 				input(type='submit' class="btn small-button" id='submit' value='Login')

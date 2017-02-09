@@ -1,0 +1,78 @@
+html
+	head
+		include includes/header
+	body.register
+		div.container
+			div.row
+				div.col.s12
+					h2.headfont Register
+					h5= message
+			div.row.rowbackgr
+				div.col.s12
+					form(action='/register' method='post' autocomplete='off')
+						div.input-field
+							input(name='email' type='email' placeholder='your@emailaddress.com')
+							label Your Email address *
+						br
+						div.input-field
+							input(name='password' type='password' placeholder='Ultra secure password' min-length = '1' class='validate' required)
+							label Your Password *
+						br
+						div.input-field
+							input(type='radio' name='loc' id='loc' value='loc')
+							label(for='loc') Use Current location
+							p#locationField
+						br
+						br
+						div.input-field
+							input#inputAdress(name='adress' type='text' placeholder='Adress' class='validate' onchange='checkGeoLoc()')
+							label Or typ in your adress (for example: your work-location)
+							input(type="hidden" id="lat" name="lat" value="")
+							input(type="hidden" id="lng" name="lng" value="")
+							input(type="hidden" id="city" name="city" value="")
+
+						br
+						label How do you want to receive notifications? *
+						div.input-field
+							input(type='radio' name='medium' id ='email' value='email' required)
+							label(for='email') An email
+							br
+							input(type='radio' name='medium' id='textmsg' value='textmsg' required) 
+							label(for='textmsg') A text message 
+							br
+						div.input-field
+							input(name='phonenumber' type='number' id='phonenumber' placeholder='Phone Number' class='validate' style='display:none; width:40%;' required)
+							//- input(type='submit' class='verify' value='Verify' id='verify' style='display:none;')
+						br
+						br
+						label How many messages do you want to receive each day? *
+						div.input-field
+							input(name='frequency' type='number' max='5' min='1' placeholder='Maximum of 5 messages a day' class='validate' required)
+						br
+						label On which of the following days do you want to receive a message? *
+						div.input-field.checkbox
+							input(type='checkbox' name='everyday' id='everyday')
+							label(for='everyday') Everyday
+							br
+							br
+							p Or choose individual days:
+							input(type='checkbox' name='day' id ='monday' value='monday' class='daygroup')
+							label(for='monday') Monday
+							input(type='checkbox' name='day' id='tuesday' value='tuesday' class='daygroup') 
+							label(for='tuesday') Tuesday
+							input(type='checkbox' name='day' id='wednesday' value='wednesday' class='daygroup') 
+							label(for='wednesday') Wednesday
+							input(type='checkbox' name='day' id ='thursday' value='thursday' class='daygroup')
+							label(for='thursday') Thursday
+							input(type='checkbox' name='day' id='friday' value='friday' class='daygroup') 
+							label(for='friday') Friday
+							input(type='checkbox' name='day' id='saturday' value='saturday' class='daygroup') 
+							label(for='saturday') Saturday
+							input(type='checkbox' name='day' id='sunday' value='sunday' class='daygroup') 
+							label(for='sunday') Sunday
+						br
+						br
+						div.buttonholder
+							input(type='submit' class="btn waves-effect" value='Register' id='submit')
+		main
+		include includes/footer

@@ -1,0 +1,104 @@
+html
+	head
+		link( href="materialize/css/materialize.min.css" type="text/css" rel="stylesheet")
+		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+		link( href='css/style.css' type='text/css' rel='stylesheet')
+	body
+		div.col.s12.m12.l12.header
+			//- h1.center-align Take a quick break and enjoy the sun!
+			img(id='cloud1' src='')
+			//- div.register-msg.center-align
+			//- 	h4= message
+			.container-sun
+				svg.svg-sun(version='1.1', viewbox='0 0 100 100', preserveaspectratio='xMinYMin meet')
+					circle#sun(cx='50', cy='50', r='35')
+
+		div.col.s12.m12.l12.navbar
+			div.login-form
+				ul.table
+					form(action='/login' method='post')
+						li.login.white-text
+							input(type='email' name='email' placeholder='your@email.com' class="validate" required)
+						li.login.white-text
+							input(name='password' placeholder='Your password' type='password' class="validate" required)
+						li
+							input(type='submit' class="btn small-button" id='submit' value='Login')
+		div.container
+			div.row
+				div.col.s12.m12.l12
+					div.card.register-card
+						div.card-content.black-text
+							h1.center-align.black-text.main-title Register
+							div.container
+								form(action='/register' method='post' autocomplete='off')
+									div.col.s6.m12.l12.input-field
+										input(name='email' type='email' placeholder='your@emailaddress.com')
+										label.black-text(for='email') Your Email address *
+
+									div.col.s6.m12.l12.input-field
+										input(name='password' type='password' placeholder='Ultra secure password' min-length = '1' class='validate' required)
+										label.black-text(for='password') Your Password *
+
+									div.col.s6.m12.l12.input-field
+										input(type='radio' name='loc' id='loc' value='loc')
+										label.black-text(for='loc') Use Current location
+										p#locationField
+
+										input#inputAdress(name='adress' type='text' placeholder='Or typ in your address' class='validate' onchange='checkGeoLoc()')
+										//- label(for='adress') Or typ in your adress (for example: your work-location)
+										input(type="hidden" id="lat" name="lat" value="")
+										input(type="hidden" id="lng" name="lng" value="")
+										input(type="hidden" id="city" name="city" value="")
+
+									div.col.s6.m12.l12.input-field
+										h6 How do you want to receive notifications? *
+										input(type='radio' name='medium' id ='email' value='email' required)
+										label.black-text(for='email') An email
+
+										input(type='radio' name='medium' id='textmsg' value='textmsg' required) 
+										label.black-text(for='textmsg') A text message 
+
+									div.col.s6.m12.l12.input-field
+										input(name='phonenumber' type='number' id='phonenumber' placeholder='Phone Number' class='validate' style='display:none; width:40%;' required)
+										//- input(type='submit' class='verify' value='Verify' id='verify' style='display:none;')
+
+									div.col.s6.m12.l12.input-field
+										input(name='frequency' type='number' max='5' min='1' placeholder='Maximum of 5 messages a day' class='validate' required)
+										label.black-text(for='frequency') How many messages do you want to receive each day? *
+
+									div.col.s6.m12.l12.input-field.checkbox
+										h6 On which of the following days do you want to receive a message? *
+										input(type='checkbox' name='everyday' id='everyday')
+										label.black-text(for='everyday') Everyday
+									div.col.s6.m12.l12.input-field.checkbox
+										h6 Or choose individual days:
+										input(type='checkbox' name='day' id ='monday' value='monday' class='daygroup')
+										label.black-text(for='monday') Monday
+										input(type='checkbox' name='day' id='tuesday' value='tuesday' class='daygroup') 
+										label.black-text(for='tuesday') Tuesday
+										input(type='checkbox' name='day' id='wednesday' value='wednesday' class='daygroup') 
+										label.black-text(for='wednesday') Wednesday
+										input(type='checkbox' name='day' id ='thursday' value='thursday' class='daygroup')
+										label.black-text(for='thursday') Thursday
+										input(type='checkbox' name='day' id='friday' value='friday' class='daygroup') 
+										label.black-text(for='friday') Friday
+										input(type='checkbox' name='day' id='saturday' value='saturday' class='daygroup') 
+										label.black-text(for='saturday') Saturday
+										input(type='checkbox' name='day' id='sunday' value='sunday' class='daygroup') 
+										label.black-text(for='sunday') Sunday
+										br
+										br
+										br
+										br
+										br
+									div.button-holder.center-align
+										input(type='submit' class="btn waves-effect" value='Register' id='submit')
+		//- div.container
+		//- 	div.row
+		//- 		div.col.s12
+		//- 			h5.center-align.white-text.sub-text
+		//- 				a(href='register') Register now
+		//- 				|  and recieve a free message when the sun is shining
+					//- h5.center-align.white-text.scroll-text Or for more info scroll down
+		main
+		include includes/footer
