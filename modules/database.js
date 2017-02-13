@@ -27,25 +27,25 @@ db.User = db.conn.define('user', {
 })
 
 //sync with the database
-db.conn.sync( {force:false}).then( () => {
+db.conn.sync( {force:true}).then( () => {
 	
 	//Create a sample user
 	bcrypt.hash('a', null, null, function (error, hash) {
 		if(error) throw error
 
-		// db.User.create({
-		// 	emailadress: 'bramm-@hotmail.com',
-		// 	password: hash,
-		// 	phonenumber: '0620702024',
-		// 	lat: '-43.285919', 
-		// 	lng: '172.807513',
-		// 	city: 'Wellington',
-		// 	medium: 'email',
-		// 	sentmessages: 0, 
-		// 	maxmessages: 5,
-		// 	contactdays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
-		// 	sunAlertsReceived: 13
-		// })
+		db.User.create({
+			emailadress: 'bramm-@hotmail.com',
+			password: hash,
+			phonenumber: '0620702024',
+			lat: '-43.285919', 
+			lng: '172.807513',
+			city: 'Wellington',
+			medium: 'email',
+			sentmessages: 0, 
+			maxmessages: 5,
+			contactdays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
+			sunAlertsReceived: 13
+		})
 
 		// db.User.create({
 		// 	emailadress: 'selmadorrestein@gmail.com',
@@ -61,19 +61,19 @@ db.conn.sync( {force:false}).then( () => {
 		// 	sunAlertsReceived: 3
 		// })
 
-		// db.User.create({
-		// 	emailadress: 'brampijper@gmail.com',
-		// 	password: hash,
-		// 	phonenumber: '0620702024',
-		// 	lat: '30.047003', 
-		// 	lng: '31.235976',
-		// 	city: 'Cairo',
-		// 	medium: 'email',
-		// 	sentmessages: 0, 
-		// 	maxmessages: 5,
-		// 	contactdays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
-		// 	sunAlertsReceived: 7
-		// })
+		db.User.create({
+			emailadress: 'brampijper@gmail.com',
+			password: hash,
+			phonenumber: '0620702024',
+			lat: '30.047003', 
+			lng: '31.235976',
+			city: 'Cairo',
+			medium: 'email',
+			sentmessages: 0, 
+			maxmessages: 5,
+			contactdays: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
+			sunAlertsReceived: 7
+		})
 
 		// db.User.create({
 		// 	emailadress: 'brumpie@hotmail.com',
