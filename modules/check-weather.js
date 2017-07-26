@@ -5,8 +5,8 @@ const bcrypt 		= require ('bcrypt-nodejs')
 const session 		= require ('express-session')
 const router  		= express.Router ( )
 
-// Require the Nexmo Texting API
-const Nexmo 		= require ('nexmo')
+// // Require the Nexmo Texting API
+// const Nexmo 		= require ('nexmo')
 
 // Require the Dark Sky API
 const Forecast 		= require ('forecast')
@@ -132,34 +132,34 @@ function sendEmail(person) {
 	})
 }
 
-// Setting the API key as environment variables
-let nexmo = new Nexmo({
-	apiKey: (process.env.NEXMO_API_KEY),
-	apiSecret: (process.env.NEXMO_API_SECRET)
-})
+// // Setting the API key as environment variables
+// let nexmo = new Nexmo({
+// 	apiKey: (process.env.NEXMO_API_KEY),
+// 	apiSecret: (process.env.NEXMO_API_SECRET)
+// })
 
-// hardcoded var's at the moment
-let sender = 31620702024
-// let recipient = 31618145253
-let message = 'The sun is currently shining! :happyface '
+// // hardcoded var's at the moment
+// let sender = 31620702024
+// // let recipient = 31618145253
+// let message = 'The sun is currently shining! :happyface '
 
-function sendText(person) {
-	nexmo.message.sendSms(sender, person.phonenumber, message, (err, responseData) => {
-		if(err) console.log(err)
-			if (responseData) {
-				console.log(responseData)
-				person.updateAttributes({
-					sentmessages: sequelize.literal('sentmessages +1')
-					// sunAlertsReceived: sequelize.literal('sunAlertsReceived +1')
-				}).then( () => {
-					console.log('frequency updated')
-				})
-			}
-			else {
-				console.log('text message was not send')
-			}
-	})
-}
+// function sendText(person) {
+// 	nexmo.message.sendSms(sender, person.phonenumber, message, (err, responseData) => {
+// 		if(err) console.log(err)
+// 			if (responseData) {
+// 				console.log(responseData)
+// 				person.updateAttributes({
+// 					sentmessages: sequelize.literal('sentmessages +1')
+// 					// sunAlertsReceived: sequelize.literal('sunAlertsReceived +1')
+// 				}).then( () => {
+// 					console.log('frequency updated')
+// 				})
+// 			}
+// 			else {
+// 				console.log('text message was not send')
+// 			}
+// 	})
+// }
 
 //export defined module
 module.exports = checkSunrise

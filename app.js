@@ -55,7 +55,7 @@ cron.schedule('*/20 * * * * *', function() {
 	checkSunrise()
 })
 
-After sunset reset sendmessages. (check every 2 hrs) 
+// After sunset reset sendmessages. (check every 2 hrs) 
 cron.schedule('* * 2 * * *', function() {
 	resetSendMessages()
 })
