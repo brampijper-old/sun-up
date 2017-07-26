@@ -83,9 +83,9 @@ function checkWeather(person) {
 					sendEmail(person)
 				}
 
-				if(person.medium == 'text') {
-					sendText(person)
-				}
+				// if(person.medium == 'text') {
+				// 	sendText(person)
+				// }
 			}
 			else {
 				console.log('the weather is not that great')
