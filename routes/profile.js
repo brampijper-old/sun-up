@@ -213,7 +213,7 @@ router.post('/newloc', (req, res) => {
 				city: req.body.city
 			}).then ( (user) => {
 				req.session.emailadress = user.emailadress
-				res.redirect('/profile?message=' + encodeURIComponent('New location set!.'))
+				res.redirect('/profile?message=' + encodeURIComponent('New location set!'))
 			})
 
 		})
