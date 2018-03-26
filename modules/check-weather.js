@@ -80,7 +80,9 @@ function checkWeather(person) {
 			if (weather.currently.icon == 'clear-day' || weather.currently.icon == 'partly-cloudy-day') {
 				
 				if(person.medium == 'email') {
-					sendEmail(person)
+					// sendEmail(person)
+					console.log('The sun is shining, YAY!')
+					sentmessages: sequelize.literal('sentmessages +1')
 				}
 
 				// if(person.medium == 'text') {
