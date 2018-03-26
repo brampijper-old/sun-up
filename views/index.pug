@@ -22,27 +22,29 @@ html
 						li.login.white-text
 							input(name='password' placeholder='Your password' type='password' class="validate" required)
 						li
-							input(type='submit' class="btn small-button" id='submit' value='Login')
+							input(type='submit' class="btn small-button" id='submitLogin' value='Login')
 		div.container
 			div.row
-				div.col.s12.m12.l12
+				div.col.s12.m12.l12.card-container
 					div.card.register-card
 						div.card-content.black-text
 							h1.center-align.black-text.main-title Register
 							div.container
 								form(action='/register' method='post' autocomplete='off')
-									div.col.s6.m12.l12.input-field
+									div.col.s12.m12.l6.input-field
 										input(name='email' type='email' placeholder='your@emailaddress.com')
 										label.black-text(for='email') Your Email address *
 
-									div.col.s6.m12.l12.input-field
+									div.col.s12.m12.l6.input-field
 										input(name='password' type='password' placeholder='Ultra secure password' min-length = '1' class='validate' required)
 										label.black-text(for='password') Your Password *
 
-									div.col.s6.m12.l12.input-field
-										input(type='radio' name='loc' id='loc' value='loc')
-										label.black-text(for='loc') Use Current location
-										p#locationField
+									div.col.s12.m12.l6.input-field
+										p
+											label.black-text(for='loc')
+												input(type='radio' name='loc' id='loc' value='loc')
+												span Use Current location
+											p#locationField
 
 										input#inputAdress(name='adress' type='text' placeholder='Or typ in your address' class='validate' onchange='checkGeoLoc()')
 										//- label(for='adress') Or typ in your adress (for example: your work-location)
@@ -50,49 +52,57 @@ html
 										input(type="hidden" id="lng" name="lng" value="")
 										input(type="hidden" id="city" name="city" value="")
 
-									div.col.s6.m12.l12.input-field
+									div.col.s12.m12.l12.input-field
 										h6 How do you want to receive notifications? *
-										input(type='radio' name='medium' id ='email' value='email' required)
-										label.black-text(for='email') An email
+										p
+											label.black-text(for='email')
+												input(type='radio' name='medium' id ='email' value='email' required)
+												span An email
 
-										input(type='radio' name='medium' id='textmsg' value='textmsg' required) 
-										label.black-text(for='textmsg') A text message 
+										p
+											label.black-text(for='textmsg')
+												input(type='radio' name='medium' id='textmsg' value='textmsg' required) 
+												span A text message 
 
-									div.col.s6.m12.l12.input-field
+									div.col.s12.m12.l6.input-field
 										input(name='phonenumber' type='number' id='phonenumber' placeholder='Phone Number' class='validate' style='display:none; width:40%;' required)
 										//- input(type='submit' class='verify' value='Verify' id='verify' style='display:none;')
 
-									div.col.s6.m12.l12.input-field
+									div.col.s12.m12.l12.input-field
 										input(name='frequency' type='number' max='5' min='1' placeholder='Maximum of 5 messages a day' class='validate' required)
 										label.black-text(for='frequency') How many messages do you want to receive each day? *
 
-									div.col.s6.m12.l12.input-field.checkbox
+									div.col.s12.m12.l12.input-field.checkbox
 										h6 On which of the following days do you want to receive a message? *
-										input(type='checkbox' name='everyday' id='everyday')
-										label.black-text(for='everyday') Everyday
-									div.col.s6.m12.l12.input-field.checkbox
-										h6 Or choose individual days:
-										input(type='checkbox' name='day' id ='monday' value='monday' class='daygroup')
-										label.black-text(for='monday') Monday
-										input(type='checkbox' name='day' id='tuesday' value='tuesday' class='daygroup') 
-										label.black-text(for='tuesday') Tuesday
-										input(type='checkbox' name='day' id='wednesday' value='wednesday' class='daygroup') 
-										label.black-text(for='wednesday') Wednesday
-										input(type='checkbox' name='day' id ='thursday' value='thursday' class='daygroup')
-										label.black-text(for='thursday') Thursday
-										input(type='checkbox' name='day' id='friday' value='friday' class='daygroup') 
-										label.black-text(for='friday') Friday
-										input(type='checkbox' name='day' id='saturday' value='saturday' class='daygroup') 
-										label.black-text(for='saturday') Saturday
-										input(type='checkbox' name='day' id='sunday' value='sunday' class='daygroup') 
-										label.black-text(for='sunday') Sunday
-										br
-										br
-										br
-										br
-										br
-									div.button-holder.center-align
-										input(type='submit' class="btn waves-effect" value='Register' id='submit')
+											br
+											label.black-text(for='everyday')
+												input(type='checkbox' name='everyday' id='everyday')
+												span Everyday
+											label.black-text(for='monday')
+												input(type='checkbox' name='day' id ='monday' value='monday' class='daygroup')
+												span Monday
+											label.black-text(for='tuesday')
+												input(type='checkbox' name='day' id='tuesday' value='tuesday' class='daygroup')
+												span Tuesday
+											label.black-text(for='wednesday')
+												input(type='checkbox' name='day' id='wednesday' value='wednesday' class='daygroup') 
+												span Wednesday
+											label.black-text(for='thursday')
+												input(type='checkbox' name='day' id ='thursday' value='thursday' class='daygroup')
+												span Thursday
+											label.black-text(for='friday')
+												input(type='checkbox' name='day' id='friday' value='friday' class='daygroup')
+												span Friday
+											label.black-text(for='saturday')
+												input(type='checkbox' name='day' id='saturday' value='saturday' class='daygroup')
+												span Saturday 
+											label.black-text(for='sunday')
+												input(type='checkbox' name='day' id='sunday' value='sunday' class='daygroup')
+												span Sunday 
+									div.col.s12.m12.l12
+										div.button-holder.center-align
+											button(class="btn waves effect waves-light" type="submit" value="Register" id='submit')
+												| Submit
 		//- div.container
 		//- 	div.row
 		//- 		div.col.s12
