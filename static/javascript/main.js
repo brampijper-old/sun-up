@@ -1,7 +1,7 @@
 $(document).ready( ( ) => {
 	
 	// Materialize for small screen devices
-	$(".button-collapse").sideNav();
+    $('.sidenav').sidenav();
 
 	//Call on function when user wants to get his current loc
 	$('#loc').click(function() {
