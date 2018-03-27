@@ -12,23 +12,32 @@ html
 			.container-sun
 				svg.svg-sun(version='1.1', viewbox='0 0 100 100', preserveaspectratio='xMinYMin meet')
 					circle#sun(cx='50', cy='50', r='35')
-
-		div.col.s12.m12.l12.navbar
-			div.login-form
-				ul.table
-					form(action='/login' method='post')
-						li.login.white-text
-							input(type='email' name='email' placeholder='your@email.com' class="validate" required)
-						li.login.white-text
-							input(name='password' placeholder='Your password' type='password' class="validate" required)
-						li
-							input(type='submit' class="btn small-button" id='submitLogin' value='Login')
 		div.container
 			div.row
 				div.col.s12.m12.l12.card-container
 					div.card.register-card
-						div.card-content.black-text
-							h1.center-align.black-text.main-title Register
+						ul.tabs.teal
+							li.tab.col.s6
+								a.white-text.active(href="#login") Login
+							li.tab.col.s6
+								a.white-text.active(href="#register") Register
+
+						div.card-content.black-text#login
+							h1.center-align.black-text.main-title Login
+							div.container
+								form(action='/login' method='post')
+									div.col.s12.m12.l12.input-field
+										input(type='email' name='email' placeholder='your@email.com' class="validate" required)
+										label.black-text(for='email') Your email adress *
+									div.col.s12.m12.l12.input-field
+										input(name='password' placeholder='Your password' type='password' class="validate" required)
+										label.black-text(for='password') Your Password *
+									div.col.s12.m12.l12.input-field.center-align
+										input(type='submit' class="btn small-button" id='submitLogin' value='Login')
+
+
+						div.card-content.black-text#register
+							h1.center-align.black-text.main-title Register Form
 							div.container
 								form(action='/register' method='post' autocomplete='off')
 									div.col.s12.m12.l6.input-field
@@ -40,20 +49,21 @@ html
 										label.black-text(for='password') Your Password *
 
 									div.col.s12.m12.l6.input-field
+										input#inputAdress(name='adress' type='text' placeholder='Your address' class='validate' onchange='checkGeoLoc()')
+										label.black-text(for='adress') Your adress *
+
 										p
 											label.black-text(for='loc')
 												input(type='radio' name='loc' id='loc' value='loc')
 												span Use Current location
 											p#locationField
-
-										input#inputAdress(name='adress' type='text' placeholder='Or typ in your address' class='validate' onchange='checkGeoLoc()')
-										//- label(for='adress') Or typ in your adress (for example: your work-location)
+										//- label(for='adress') typ in your adress (for example: your work-location)
 										input(type="hidden" id="lat" name="lat" value="")
 										input(type="hidden" id="lng" name="lng" value="")
 										input(type="hidden" id="city" name="city" value="")
-
+									br
 									div.col.s12.m12.l12.input-field
-										h6 How do you want to receive notifications? *
+										p.test How do you want to receive notifications? *
 										p
 											label.black-text(for='email')
 												input(type='radio' name='medium' id ='email' value='email' required)
@@ -103,12 +113,5 @@ html
 										div.button-holder.center-align
 											button(class="btn waves effect waves-light" type="submit" value="Register" id='submit')
 												| Submit
-		//- div.container
-		//- 	div.row
-		//- 		div.col.s12
-		//- 			h5.center-align.white-text.sub-text
-		//- 				a(href='register') Register now
-		//- 				|  and recieve a free message when the sun is shining
-					//- h5.center-align.white-text.scroll-text Or for more info scroll down
 		main
 		include includes/footer
