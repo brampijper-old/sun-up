@@ -60,13 +60,13 @@ function checkSunrise() {
 
 			let times = SunCalc.getTimes(new Date(), person.lat, person.lng)
 
-			if (times.sunrise < date && times.sunset > date) {
-				checkWeather(person)
-			}
+			// if (times.sunrise < date && times.sunset > date) {
+			// 	checkWeather(person)
+			// }
 
-			else {
+			// else {
 				console.log('the sun is currently under')
-			}
+			// }
 		})
 	})	
 }
