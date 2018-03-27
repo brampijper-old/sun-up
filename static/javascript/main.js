@@ -2,6 +2,7 @@ $(document).ready( ( ) => {
 	
 	// Materialize for small screen devices
     $('.sidenav').sidenav();
+    $('.tabs').tabs();
 
 	//Call on function when user wants to get his current loc
 	$('#loc').click(function() {
@@ -29,7 +30,16 @@ $(document).ready( ( ) => {
 		// if every day is not checked anymore then remove the everyday marker check.
 		else {
 			$('input:checkbox').not(this).prop('checked', false)
-		} 
+		}
+	})
+
+	$('.daygroup').click(function() {
+		if(!$('#monday').is(':checked') || !$('#tuesday').is(':checked') || !$('#wednesday').is(':checked') || !$('#thursday').is(':checked')
+		|| !$('#friday').is(':checked') || !$('#saturday').is(':checked') || !$('#sunday').is(':checked')) { 
+			$('#everyday').not(this).prop('checked', false)
+		} else {
+			$('input:checkbox').not(this).prop('checked', this.checked)
+		}
 	})
 
 	//Store picture path in an array to load a random picture.
