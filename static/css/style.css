@@ -28,18 +28,6 @@ footer.page-footer {
 	background-color:#242E35;
 }
 
-/*Login form front page*/
-ul.table {
-	text-align:center;
-}
-
-ul.table li {
-	display:inline-block;
-	width:13%;
-	text-align: center;
-	padding: 1% 1% 1% 1%;
-}
-
 input[type=submit] {
 	position: relative;
 	transform: translateY(35%);
@@ -79,6 +67,8 @@ input[type=submit] {
 
 .main-title {
 	margin:5% 0% 5%;
+	font-size:calc(12px + 3.5vw);
+
 }
 
 .input-field {
@@ -210,9 +200,32 @@ animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
 	margin-top:10%;
 	margin-bottom:10%;
 	padding-bottom:8%;
+	width:100%;
 }
 
 .button-holder { 
 	padding-top: 5%;
 }
 
+.test { 
+	font-size: 0.75rem;
+	font-style: normal;
+}
+
+.tabs .indicator
+{
+	background-color: #e0f2f1;
+	height: 60px;
+	opacity: 0.3;
+}
+
+.form-container
+{
+	padding: 40px;
+	padding-top: 10px;
+}
+
+.confirmation-tabs-btn
+{
+	position: absolute;
+}
