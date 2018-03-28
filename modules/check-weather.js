@@ -23,7 +23,7 @@ let db 				= require(__dirname + '/../modules/database')
 // Initialize forecast api
 let forecast = new Forecast({
 	service: 'darksky',
-	key: '849e25a126ed4beac13ef877c8a1fabb',
+	key: process.env.DARKSKY_API_KEY,
 	units: 'celcius',
 	cache: true,
 	ttl: {
@@ -60,13 +60,13 @@ function checkSunrise() {
 
 			let times = SunCalc.getTimes(new Date(), person.lat, person.lng)
 
-			// if (times.sunrise < date && times.sunset > date) {
-			// 	checkWeather(person)
-			// }
+			if (times.sunrise < date && times.sunset > date) {
+				checkWeather(person)
+			}
 
-			// else {
+			else {
 				console.log('the sun is currently under')
-			// }
+			}
 		})
 	})	
 }
@@ -80,7 +80,7 @@ function checkWeather(person) {
 			if (weather.currently.icon == 'clear-day' || weather.currently.icon == 'partly-cloudy-day') {
 				
 				if(person.medium == 'email') {
-					// sendEmail(person)
+					sendEmail(person)
 					console.log('The sun is shining, YAY!')
 					sentmessages: sequelize.literal('sentmessages +1')
 				}
