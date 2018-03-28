@@ -2,7 +2,9 @@ $(document).ready( ( ) => {
 	
 	// Materialize for small screen devices
     $('.sidenav').sidenav();
-    $('.tabs').tabs();
+	$('.tabs').tabs();
+	$('.collapsible').collapsible();
+
 
 	//Call on function when user wants to get his current loc
 	$('#loc').click(function() {
@@ -56,7 +58,7 @@ $(document).ready( ( ) => {
 		let imgHeight = parseInt((Math.random() * 35) + 1)
 		let imgOpacity = parseFloat((Math.random() * 0.8) + 0.3)
 
-		console.log(imgOpacity)
+		// console.log(imgOpacity)
 
 		//Pass the variables to the animation function
 		mainCloudAnimation(picNr, imgHeight, imgOpacity, speed)

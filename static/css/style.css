@@ -94,6 +94,9 @@ label {
 
 .buttonholder {
 	margin-top:5%;
+	padding-bottom:5%;
+	padding-top: 5%;
+
 }
 
 .collapsible-body {
@@ -108,10 +111,6 @@ label {
 
 h6 {
 	font-weight: bold;
-}
-
-.buttonholder {
-	padding-bottom:5%;
 }
 
 .container-sun{
@@ -203,9 +202,6 @@ animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
 	width:100%;
 }
 
-.button-holder { 
-	padding-top: 5%;
-}
 
 .test { 
 	font-size: 0.75rem;
