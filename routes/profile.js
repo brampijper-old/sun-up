@@ -176,7 +176,7 @@ router.post('/newcontactday', (req, res) => {
 		return
 	}
 	
-	if(req.body.day.length >= 1) {
+	if(req.body.day.length >= 0) {
 		db.User.findOne({
 			where: {
 				emailadress: req.session.emailadress

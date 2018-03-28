@@ -44,12 +44,12 @@ router.post('/login', (req, res) => {
 						console.log('succesfully logged in')
 						res.redirect('/profile?message=' + encodeURIComponent('You are now logged-in.'))
 					} else {
-						res.redirect('/login?message=' + encodeURIComponent('Invalid email or password.'))
+						res.redirect('/index?message=' + encodeURIComponent('Wrong Password'))
 						return
 					}
 				})
 			} else {
-				res.redirect('/login?message=' + encodeURIComponent('Invalid email or password.'))
+				res.redirect('/index?message=' + encodeURIComponent('Wrong Email'))
 				return
 			}
 		})
