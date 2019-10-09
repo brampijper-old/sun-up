@@ -29,8 +29,6 @@ footer.page-footer {
 }
 
 input[type=submit] {
-	position: relative;
-	transform: translateY(35%);
 }
 
 .header {
@@ -71,10 +69,6 @@ input[type=submit] {
 
 }
 
-.input-field {
-	margin-top:10%;
-}
-
 label {
 	font-size: 20px;
 }
@@ -92,10 +86,8 @@ label {
 	margin-top: 5%;
 }
 
-.buttonholder {
-	margin-top:5%;
+.button-holder {
 	padding-bottom:5%;
-	padding-top: 5%;
 
 }
 
@@ -109,13 +101,21 @@ label {
 	margin-top:1.5%;
 }
 
+.checkboxHolder {
+	display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
 h6 {
 	font-weight: bold;
+	margin-bottom:20px;
 }
 
 .container-sun{
   text-align:center;
   padding: 7% 0% 7% 0%;
+  overflow:hidden;
 }
 
 body.register {
@@ -133,79 +133,27 @@ span {
 	padding-right: 3%;
 }
 
-/* the svg sun element */
-.svg-sun{
-  width:300px;
-  height:300px;
-
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: 50% 50%;
-  -o-transform-origin: center center;
-  -ms-transform-origin: center center;
-  transform-origin:50% 50%;
-
--webkit-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--moz-animation: spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--o-animation:spin 25s linear infinite, sun-glow 3s 0s linear infinite;
--ms-animation: spin 25s linear infinite, sun-glow 3s 0s ease-in-out infinite;
-animation: spin 25s linear infinite,sun-glow 3s 0s linear infinite;
-
-}
-/* the circle element in the svg itself */
-#sun{
-  stroke-width:28;
-  stroke-dasharray:2;
-  stroke-dashoffset:2;
-}
-/* animation for the sun glowing effect */
-@-webkit-keyframes sun-glow { 
-	0% { fill: #f1c40f; stroke:#f1c40f;}
-	50% { fill: #e67e22; stroke:#e67e22;}
-	100% { fill: #f1c40f; stroke:#f1c40f;}
-}
-@-moz-keyframes sun-glow { 
-	0% { fill: #f1c40f; stroke:#f1c40f;}
-	50% { fill: #e67e22; stroke:#e67e22;}
-	100% { fill: #f1c40f; stroke:#f1c40f;}
-}
-@-o-keyframes sun-glow { 
-	0% { fill: #f1c40f; stroke:#f1c40f;}
-	50% { fill: #e67e22; stroke:#e67e22;}
-	100% { fill: #f1c40f; stroke:#f1c40f;}
-}
-@-ms-keyframes sun-glow { 
-	0% { fill: #f1c40f; stroke:#f1c40f;}
-	50% { fill: #e67e22; stroke:#e67e22;}
-	100% { fill: #f1c40f; stroke:#f1c40f;}
-}
-@keyframes sun-glow { 
-	0% { fill: #f1c40f; stroke:#f1c40f;}
-	50% { fill: #e67e22; stroke:#e67e22;}
-	100% { fill: #f1c40f; stroke:#f1c40f;}
-}
-
-/*start spin animation */
-@-webkit-keyframes spin{
-	100% {
-		-webkit-transform: rotate(360deg);
-	}
-}
-
 .card-container {
+	margin-top: 50px;
+	margin-bottom: 45px;
 	display: flex;
 }
 
 .register-card {
-	margin-top:10%;
-	margin-bottom:10%;
-	padding-bottom:8%;
-	width:100%;
+	width:50vw;
+	margin: 0 auto;
+	border-radius: 25px;
 }
 
 
 .test { 
 	font-size: 0.75rem;
 	font-style: normal;
+}
+
+ul.tabs.teal {
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
 }
 
 .tabs .indicator
