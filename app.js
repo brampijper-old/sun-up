@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const bcrypt = require ('bcrypt-nodejs')
 const session = require('express-session')
 const pg = require ('pg')
-const cron			= require('node-cron')
+const cron = require('node-cron')
 
 //Initialize App
 const app = express ( )
@@ -50,15 +50,15 @@ app.get('/index', (req, res ) => {
 	res.render('index')
 })
 
-// Check if the sun shines.
-cron.schedule('*/20 * * * * *', function() {
-	checkSunrise()
-})
+// // Check if the sun shines.
+// cron.schedule('*/20 * * * * *', function() {
+// 	checkSunrise()
+// })
 
-// After sunset reset sendmessages. (check every 2 hrs) 
-cron.schedule('* * 2 * * *', function() {
-	resetSendMessages()
-})
+// // After sunset reset sendmessages. (check every 2 hrs) 
+// cron.schedule('* * 2 * * *', function() {
+// 	resetSendMessages()
+// })
 
 function resetSendMessages(){
 	db.User.findAll({
