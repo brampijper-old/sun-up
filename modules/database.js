@@ -1,4 +1,5 @@
 //Import modules
+require('dotenv').config();
 const sequelize = require('sequelize')
 const express = require ('express')
 const bcrypt = require ('bcrypt-nodejs')
@@ -6,7 +7,7 @@ const bcrypt = require ('bcrypt-nodejs')
 const db = {}
 
 // Connect to database
-db.conn = new sequelize ('sunup', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+db.conn = new sequelize ('sunup', process.env.POSTGRES_USERNAME, process.env.POSTGRES_PASSWORD, {
 	server: 'localhost',
 	dialect: 'postgres'
 })
