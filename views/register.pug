@@ -25,8 +25,8 @@ html
 						br
 						br
 						div.input-field
-							input#inputAdress(name='adress' type='text' placeholder='Adress' class='validate' onchange='checkGeoLoc()')
-							label Or typ in your adress (for example: your work-location)
+							input#inputAdress(name='adress' type='text' placeholder='City' class='validate' onchange='setupBaseURL()')
+							label City (for example: your work-location)
 							input(type="hidden" id="lat" name="lat" value="")
 							input(type="hidden" id="lng" name="lng" value="")
 							input(type="hidden" id="city" name="city" value="")
