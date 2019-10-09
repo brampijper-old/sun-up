@@ -3,6 +3,7 @@ html
 		link( href="materialize/css/materialize.min.css" type="text/css" rel="stylesheet")
 		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
 		link( href='css/style.css' type='text/css' rel='stylesheet')
+		link( href='css/sun.css' type='text/css' rel='stylesheet')
 	body
 		div.col.s12.m12.l12.header
 			//- h1.center-align Take a quick break and enjoy the sun!
@@ -23,7 +24,6 @@ html
 								a.white-text.active(href="#register") Register
 
 						div.card-content.black-text#login
-							h1.center-align.black-text.main-title Login
 							h6.center-align.red-text= message
 							div.container
 								form(action='/login' method='post' autocomplete='off')
@@ -38,7 +38,6 @@ html
 
 
 						div.card-content.black-text#register
-							h1.center-align.black-text.main-title Register Form
 							div.container
 								form(action='/register' method='post' autocomplete='off')
 									div.col.s12.m12.l6.input-field
@@ -50,7 +49,7 @@ html
 										label.black-text(for='password') Your Password *
 
 									div.col.s12.m12.l6.input-field
-										input#inputAdress(name='adress' autocomplete='on' type='text' placeholder='Your address' class='validate' onchange='checkGeoLoc()')
+										input#inputAdress(name='adress' autocomplete='on' type='text' placeholder='Your address' class='validate' onchange='setupBaseURL()')
 										label.black-text(for='adress') Your adress *
 
 										p
@@ -82,10 +81,9 @@ html
 									div.col.s12.m12.l12.input-field
 										input(name='frequency' type='number' max='5' min='1' placeholder='Maximum of 5 messages a day' class='validate' required)
 										label.black-text(for='frequency') Amount of messages a day? *
-
-									div.col.s6.m12.l12
+									div.col.s12.m12.l12
 										h6 On which of the following days do you want to receive a message?
-										br
+									div.col.checkboxHolder
 										label.black-text(for='everyday')
 											input(type='checkbox' name='everyday' id='everyday')
 											span Everyday
