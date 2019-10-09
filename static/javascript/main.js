@@ -19,7 +19,7 @@ $(document).ready( ( ) => {
 			document.getElementById('phonenumber').style.display = 'block'
 		}
 		if($('#email').is(':checked')) {
-			document.getElementById('phonenumber').style.display = 'none'
+			// document.getElementById('phonenumber').style.display = 'none'
 			$('#phonenumber').removeAttr('required')
 		}
 	})
